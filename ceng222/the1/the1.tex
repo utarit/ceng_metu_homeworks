@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+
+%misc libraries goes here
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+
+\begin{document}
+
+\noindent
+\HRule \\[3mm]
+\begin{flushright}
+
+                                         \LARGE \textbf{CENG 222}  \\[4mm]
+                                         \Large Statistical Methods for Computer Engineering \\[4mm]
+                                        \normalsize      Spring '2017-2018 \\
+                                           \Large   Take Home Exam 1 \\
+                    \normalsize Deadline: May 25, 23:59 \\
+                    \normalsize Submission: via COW
+\end{flushright}
+\HRule
+
+\section*{Student Information }
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Mert Akça  \\
+Id Number : 2171163 \\
+
+% Write your answers below the section tags
+\section*{Answer 3.8}
+
+\begin{table}[h]
+\centering
+\caption{Probability of wrong tries}
+\label{my-label}
+\begin{tabular}{ll}
+Number of Tries & P(X) \\
+0               & 0.25 \\
+1               & 0.25 \\
+2               & 0.25 \\
+3               & 0.25
+\end{tabular}
+\end{table}
+
+\noindent $E(X) = 0*0.25+1*0.25+2*0.25+3*0.25= 1.5$\ 
+
+\noindent $Var(X) = (0-1.5)^2*0.25+(1-1.5)^2*0.25+(2-1.5)^2*0.25+(3-1.5)^2*0.25= 1.25$
+
+
+
+\section*{Answer 3.15}
+
+\subsection*{a.}
+
+Probability of no failure in both labs is 0.52. Probability of at least one failure is $1-0.52 = 0.48$
+
+\subsection*{b.}
+
+$P_x(0) = 0.52+0.14+0.06 = 0.72$ and $P_y(0) = 0.52 + 0.2 + 0.04 = 0.76$\ 
+
+Their multiplication is 0.547, but given value ($P(x,y)$) is 0.52. As they are not same, X and Y are dependent
+
+\section*{Answer 3.19}
+
+$E(X) = 2 * 0.5 + (-2)*0.5 = 0$ and $Var(X) = 2^2*0.5+(-2)^2*0.5 = 4$\ 
+
+\noindent $E(Y) = 4*0.2 +(-1)*0.8 = 0$ and $Var(Y) = 4^2*0.2 + (-1)^2*0.8 = 4$
+
+\subsection*{a.}
+
+$E(100X) = 100*E(X) = 0$ and $Var(100X) = 100^2*Var(X) = 40,000$
+
+\subsection*{b.}
+
+$E(100Y) = 100*E(Y) = 0$ and $Var(100Y) = 100^2*Var(Y) = 40,000$
+
+\subsection*{c.}
+
+$E(50X + 50Y) = 50*E(X) + 50*E(Y) = 0$ and $Var(50X+50Y) = 50^2*Var(X) + 50^2*Var(Y) = 20,000$
+
+\section*{Answer 3.29}
+
+A: no accidents last year, B: Being high-risk driver\ 
+
+\noindent For high-risk drivers our $\lambda = 1$, for low-risk drivers $\lambda = 0.1$
+
+\noindent $P\{B\} = 0.2$, and\\ $P\{A|B\} = P\{X=0\} = F_{\lambda = 1}(0) = 0.368$, $P\{A|B'\} = P\{X=0\} = F_{\lambda = 0.1}(0) = 0.905$\\
+
+What we are asked is: $P\{B|A\} = ?$\\
+
+$P\{B|A\} = \frac{P\{A|B\}*P\{B\}}{P\{A|B\}*P\{B\} + P\{A|B'\}*P\{B'\}}$\\
+
+$P\{B|A\} = \frac{0.368*0.2}{0.368*0.2+0.905*0.8} = 0.0923$
+
+
+\end{document}

@@ -1,0 +1,185 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+%misc libraries goes here
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+
+\begin{document}
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Mert Akça \\
+Id Number : 2171163 \\
+
+% Write your answers below the section tags
+\section*{Answer 1}
+
+\subsection*{a.}
+
+    $(p,x,e),(p,a)$   for each $x \in \sum$ \hfill  (0)\\
+    $(p,e,XaXSa),(p,S)$    \hfill  (1)\\
+    $(p,e,XbXSb),(p,S)$  \hfill (2)\\
+    $(p,e,c),(p,S)$     \hfill  (3)\\
+    $(p,e,Xa),(p,X)$    \hfill  (4)\\
+    $(p,e,Xb),(p,X)$     \hfill (5)\\
+    $(p,e,e),(p,X)$    \hfill   (6)\\
+    $(p,e,S),(q,e)$     \hfill  (7)\\
+
+
+\subsection*{b.}
+
+\begin{table}[H]
+\centering
+\caption{Transition Table}
+\label{my-label}
+\begin{tabular}{|l|l|r|r|l|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Step}} & \multicolumn{1}{c|}{\textbf{State}} & \multicolumn{1}{c|}{\textbf{Unread Input}} & \multicolumn{1}{c|}{\textbf{Stack}} & \multicolumn{1}{c|}{\textbf{Transition Used}} \\ \hline
+1& p& abbcbabbaa &&\\ \hline
+2& p& bbcbabbaa & a & 0\\ \hline
+3& p& bcbabbaa & ba & 0\\ \hline
+4& p& cbabbaa & bba & 0\\ \hline
+5& p& babbaa & cbba & 0\\ \hline
+6& p& babbaa & Sbba & 3\\ \hline
+7& p& babbaa & XSbba & 6\\ \hline
+8& p& abbaa & bXSbba & 0\\ \hline
+9& p& bbaa & abXSbba & 0\\ \hline
+10& p& bbaa & XabXSbba & 6\\ \hline
+11& p& bbaa & XbXSbba & 4\\ \hline
+12& p& bbaa & Sba & 2\\ \hline
+13& p& bbaa & XSba & 6\\ \hline
+14 & p  & baa & bXSba & 0 \\ \hline
+15 & p  & baa & XbXSba & 6 \\ \hline
+16 & p  & baa & Sa & 2 \\ \hline
+17 & p  & aa  & bSa   & 0 \\ \hline
+18 & p  & aa  & XbSa  & 6 \\ \hline
+19 & p  & aa  & XSa   & 5 \\ \hline
+20 & p  & a   & aXSa  & 0 \\ \hline
+21 & p  & e   & aaXSa & 0 \\ \hline
+22 & p  & e   & XaaXSa & 6 \\ \hline
+23 & p  & e   & XaXSa & 4 \\ \hline
+24 & p  & e   & S  & 1 \\ \hline
+25 & q  & e   & e  & 7 \\ \hline
+\end{tabular}
+\end{table}
+
+\section*{Answer 2}
+
+\subsection*{a.}
+M= (K, $\sum$, $\delta$, $q_0$, {q2, q12}), where
+\begin{center}
+    K=\{$q_i\ |\ 0 \le i \le 12$\}\\
+    $\sum = \{1, \sqcup, \triangleright \}$
+\end{center}
+
+\begin{table}[H]
+\centering
+\caption{Transitions}
+\label{my-label}
+\begin{tabular}{|l|l|l|}
+\hline
+q & $\sigma$ & $\delta$(q, $\sigma$) \\ \hline
+q0 & 1 & (q1, $\rightarrow$) \\ \hline
+q0 & $\sqcup$ & (q3, $\leftarrow$) \\ \hline
+q1 & 1 & (q0, $\rightarrow$) \\ \hline
+q1 & $\sqcup$ & (q2, 1) \\ \hline
+q3 & 1 & (q3, $\leftarrow$) \\ \hline
+q3 & $\triangleright$ & (q4, $\rightarrow$) \\ \hline
+q4 & 1 & (q5, $\sqcup$) \\ \hline
+q5 & $\sqcup$ & (q5, $\rightarrow$) \\ \hline
+q5 & 1 & (q6, $\sqcup$) \\ \hline
+q6 & $\sqcup$ & (q7, $\rightarrow$) \\ \hline
+q7 & 1 & (q7, $\rightarrow$) \\ \hline
+q7 & $\sqcup$ & (q8, $\rightarrow$) \\ \hline
+q8 & 1 & (q8, $\rightarrow$) \\ \hline
+q8 & $\sqcup$ & (q9, 1) \\ \hline
+q9 & 1 & (q10, $\leftarrow$) \\ \hline
+q10 & 1 & (q10, $\leftarrow$) \\ \hline
+q10 & $\sqcup$ & (q11, $\leftarrow$) \\ \hline
+q11 & 1 & (q11, $\leftarrow$) \\ \hline
+q11 & $\sqcup$ & (q4, $\rightarrow$) \\ \hline
+q4 & $\sqcup$ & (q12, $\rightarrow$) \\ \hline
+\end{tabular}
+\end{table}
+
+
+\section*{Answer 3}
+Regular languages can be written with move-restricted Turing machines. Becuse in both regular language and move-restricted Turing machine, we cannot hold any information about which charachters we passed or any length of any substring. 
+
+\section*{Answer 4}
+
+\subsection*{a.}
+M= (K, $\sum$, $\delta$, s, H), where
+\begin{center}
+    K= set of states\\
+    $\sum =$ set of alphabets containing \textbf{any symbol} symbol $\ast$ and  \textbf{blank symbol} $\sqcup$\\
+    $\delta=$ transition function from $((K-H) \times \sum \times \sum )$ to $K \times \{enqueue, dequeue(\sum \cup \{front, rear\}) \}$ such that,\\
+    front = first symbol in the string,\\
+    rear = last symbol in the string.\\
+    s = initial state\\
+    H = set of halting states
+\end{center}
+
+\subsection*{b.}
+(q, \underline{a}w\underline{b}), where a, b $\in \sum$ and w $\in \sum^*$
+
+\subsection*{c.}
+\begin{center}
+    $(q_1, \underline{a}cw\underline{b}) \vdash_M (q_1, \underline{c}w\underline{b})$\\
+    $(q_1, \underline{a}w\underline{b}) \vdash_M (q_1, \underline{a}wb\underline{x})$\\
+    where a, b, c, x $\in \sum$ and w $\in \sum^*$
+\end{center}
+
+\subsection*{d.}
+
+\subsection*{e.}
+
+M= (K, $\sum$, $\delta$, s, H), where
+\begin{center}
+    K= set of states\\
+    $\sum =$ set of alphabets\\
+    $\delta=$ transition function\\
+    s= initial state\\
+    H= set of halting states
+\end{center}
+
+
+\section*{Answer 5}
+
+\subsection*{a.}
+
+\subsection*{b.}
+
+
+
+\section*{Answer 6}
+
+\subsection*{a.}
+
+\subsection*{b.}
+
+\subsection*{c.}
+
+\subsection*{d.}
+
+
+%Do not submit solutions for Question 7, yet do solve it.
+
+
+\end{document}
+
+​

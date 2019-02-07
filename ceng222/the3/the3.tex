@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+
+%misc libraries goes here
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+
+\begin{document}
+
+\noindent
+\HRule \\[3mm]
+\begin{flushright}
+
+                                         \LARGE \textbf{CENG 222}  \\[4mm]
+                                         \Large Statistical Methods for Computer Engineering \\[4mm]
+                                        \normalsize      Spring '2017-2018 \\
+                                           \Large   Take Home Exam 3 \\
+                    \normalsize Deadline: May 25, 23:59 \\
+                    \normalsize Submission: via COW
+\end{flushright}
+\HRule
+
+\section*{Student Information }
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Mert Akça  \\
+Id Number : 2171163 \\
+
+% Write your answers below the section tags
+\section*{Answer 1}
+
+In order to decide the Monte Carlo Study size I used this formula:
+\begin{center}
+    $N \ge 0.25 (\frac{z_{a/2}}{\epsilon})^2$
+\end{center}
+For $\epsilon = 0.005$ and $z_{0.05/2} = 1.96$
+\begin{center}
+    $N \ge 38,416$
+\end{center}
+In addition, for estimating the condition $W >= 2*S$, I used double integral
+\begin{center}
+    $\int_0^{\infty}\int_0^{w/2} w*s*e^{-w-s} dsdw$
+\end{center}
+And the result of this is
+\begin{center}
+    $\int_0^{\infty}\int_0^{w/2} w*s*e^{-w-s} dsdw = \frac{7}{27}$
+\end{center}
+
+\noindent Finally for 5 hours $ \lambda = 20$.\\
+
+ I generated a poisson(20) for minion number and random number array[minion number]. I checeked random numbers and the probability (0.25) if true I counted as 1 or 0. As a result I counted minions that met condition. Then I did this simulation N times, and took average of it.
+
+
+\section*{Answer 2}
+
+First, I found the marginal PDF of W using this formula:
+\begin{center}
+    $f_W(w) = \int_{0}^{\infty} f_{WS}(w,s)ds$, for all $w$
+\end{center}
+And the marginal PDF of W is
+\begin{center}
+    $f_W(w)= \frac{w}{e^w}$
+\end{center}
+The maximum value that $f_W(w)$ can be was 1 so while using rejection method I used $a=0,\ b = 6,\ c = 1$ to generate a weight for a minion.\\
+
+I generate minion number with poisson(20), and generate a random weight for each minion. Then, I sum all weights. I did this simulation for N size and take mean of the results.
+
+
+\section*{Answer 3}
+
+I generate a exp(3) and N(0,1) numbers with built-in generators. Then, I calculated the result of the question, and I did it N times, and took the average. (I didn't know how many times I run the simulation, so I used N from the first question.)
+
+
+
+
+\end{document}
